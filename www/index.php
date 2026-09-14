@@ -10,16 +10,16 @@
     <header class="topo-navegacao">
         <div class="container-header">
             <div class="marca">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="css/pata-de-cachorro.png" alt="Ícone Patinha" class="logo-icone">
                     Lista Pets
                 </a>
             </div>
             <nav class="menu-principal">
                 <ul>
-                    <li><a href="index.html">Pets</a></li>
-                    <li><a href="especies.html">Espécies</a></li>
-                    <li><a href="login.html" class="bot-sair">Desconectar</a></li>
+                    <li><a href="index.php">Pets</a></li>
+                    <li><a href="especies.php">Espécies</a></li>
+                    <li><a href="login.php" class="bot-sair">Desconectar</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,7 +28,7 @@
     <main class="conteudo-principal">
         <div class="painel-topo">
             <h2>Pets Cadastrados</h2>
-            <a href="cadastro_pets.html" class="bot-novo">+ Cadastrar Novo Pet</a>
+            <a href="cadastro_pets.php" class="bot-novo">+ Cadastrar Novo Pet</a>
             
             <link rel="stylesheet" href="css/style.css">
 
