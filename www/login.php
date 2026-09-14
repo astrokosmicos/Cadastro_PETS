@@ -38,10 +38,4 @@
     </main>
 
 
-<!-- rodapé -->
-    <footer class="rodape-sistema">
-        <p>Sistema Cadastro Adoção Pets</p>
-    </footer>
-
-</body>
-</html>
+<?php include_once 'rodape.php'; ?>

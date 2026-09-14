@@ -1,7 +1,7 @@
 <?php
-$servidor = "db";
+$servidor = "mysql";
 $usuario  = "root";
-$senha    = "";
+$senha    = "1234";
 $banco    = "cadastros";
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);

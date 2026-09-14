@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espécies - Abrigo de Animais</title>
+<?php 
+session_start();
 
-    <link rel="stylesheet" href="css/style.css">
-    
-</head>
-<body>
-    <!-- cabeçalho -->
-    <header class="topo-navegacao">
-        <div class="container-header">
+require_once("conecta.php"); 
 
-            <div class="marca">
-                <a href="index.php">
-                    <img src="css/pata-de-cachorro.png" alt="Ícone Patinha" class="logo-icone">
-                    Lista Pets
-                </a>
-            </div>
+include_once 'cabecalho.php'; 
 
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.php">Pets</a></li>
-                    <li><a href="especies.php">Espécies</a></li>
-                    <li><a href="login.php" class="bot-sair">Desconectar</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+?>
 
     <main class="conteudo-principal">
         <div class="painel-topo">
@@ -59,10 +36,4 @@
         </div>
     </main>
 
-  <!-- rodapé -->
-    <footer class="rodape-sistema">
-        <p>Sistema Cadastro Adoção Pets</p>
-    </footer>
-
-</body>
-</html>
+ <?php include_once 'rodape.php'; ?>
