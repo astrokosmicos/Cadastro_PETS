@@ -25,7 +25,7 @@ include_once 'cabecalho.php';
                 <tbody>
                 <?php
 
-                $sql = "SELECT * FROM especies ORDER BY nome ASC";
+                $sql = "SELECT * FROM especies ORDER BY especie ASC";
                 $resultado = mysqli_query($conn, $sql);
 
                 if ($resultado && mysqli_num_rows($resultado) > 0) {

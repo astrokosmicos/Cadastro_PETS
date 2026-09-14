@@ -30,19 +30,41 @@ include_once 'cabecalho.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Tom</td>
-                        <td>15/05/2022</td>
-                        <td>Gato</td>
-                        <td>Macho</td>
-                        <td>Vacinas atualizadas, castrado e muito dócil.</td>
-                        <td class="coluna-acoes">
-                            <a href="cadastro_pets.html" class="bot-acao bot-editar">Editar</a>
-                            <a href="#" class="bot-acao bot-excluir" onclick="return confirm('Deseja mesmo excluir o PET?');">Excluir</a>
-                        </td>
-                    </tr>
-            
+                    <?php
+
+                        $sql = "SELECT pets.*, especies.especie AS nome_especie 
+                                FROM pets 
+                                LEFT JOIN especies ON pets.especie_id = especies.id 
+                                ORDER BY pets.nome ASC";
+
+
+                        $resultado = mysqli_query($conn, $sql);
+
+                        if ($resultado && mysqli_num_rows($resultado) > 0) {
+
+
+                            while ($row = mysqli_fetch_array($resultado)) {
+                                $data_br = date('d/m/Y', strtotime($row['nascimento']));
+                                echo "<tr>";
+                                echo "<td>{$row['id']}</td>";
+                                echo "<td>{$row['nome']}</td>";
+                                echo "<td>{$data_br}</td>";
+
+                                echo "<td>{$row['nome_especie']}</td>";
+                                echo "<td>" . ucfirst($row['genero']) . "</td>";
+                                echo "<td>{$row['prontuario']}</td>";
+                                echo "<td class=\"coluna-acoes\">
+                                        <a href=\"cadastro_pets.php?id={$row['id']}\" class=\"bot-acao bot-editar\">Editar</a>
+                                        <a href=\"excluir_pet.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir o PET?');\">Excluir</a>
+                                    </td>";
+                                echo "</tr>";
+                                
+                            }
+
+                        } else {
+                            echo "<tr><td colspan='7'>Nenhum pet cadastrado.</td></tr>";
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
