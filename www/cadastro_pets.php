@@ -1,10 +1,32 @@
 <?php 
 session_start();
-
 require_once("conecta.php"); 
 
-include_once 'cabecalho.php'; 
+$id_pet = "";
+$nome = "";
+$nascimento = "";
+$especie_id = "";
+$genero = "";
+$prontuario = "";
+$titulo_pagina = "Novo Pet";
 
+if (isset($_GET["id"]) && !empty($_GET["id"])) {
+    $id_pet = $_GET["id"];
+    $sql = "SELECT * FROM pets WHERE id = $id_pet";
+    $resultado = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($resultado) == 1) {
+        $pet = mysqli_fetch_array($resultado);
+        $nome = $pet["nome"];
+        $nascimento = $pet["nascimento"];
+        $especie_id = $pet["especie_id"];
+        $genero = $pet["genero"];
+        $prontuario = $pet["prontuario"];
+        $titulo_pagina = "Editar Pet";
+    }
+}
+
+include_once 'cabecalho.php'; 
 ?>
 
     <main class="conteudo-principal">
@@ -26,8 +48,14 @@ include_once 'cabecalho.php';
                     <label for="especie_id">Espécie</label>
                     <select id="especie_id" name="especie_id" required>
                         <option value="">Selecione uma espécie</option>
-                        <option value="1">Cachorro</option>
-                        <option value="2">Gato</option>
+                        <?php
+                        $sql_esp = "SELECT * FROM especies ORDER BY nome ASC";
+                        $res_esp = mysqli_query($conn, $sql_esp);
+                        while ($row = mysqli_fetch_array($res_esp)) {
+                            $selected = ($row["id"] == $especie_id) ? "selected" : "";
+                            echo "<option value=\"{$row['id']}\" $selected>{$row['nome']}</option>";
+                        }
+                        ?>
                     </select>
                 </div>
 

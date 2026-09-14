@@ -3,7 +3,23 @@ session_start();
 
 require_once("conecta.php"); 
 
-include_once 'cabecalho.php'; 
+$id_especie = "";
+$nome_especie = "";
+$titulo_pagina = "Cadastrar Nova Espécie";
+
+if (isset($_GET["id"]) && !empty($_GET["id"])) {
+    $id_especie = $_GET["id"];
+    $sql = "SELECT * FROM especies WHERE id = $id_especie";
+    $resultado = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($resultado) == 1) {
+        $esp = mysqli_fetch_array($resultado);
+        $nome_especie = $esp["nome"];
+        $titulo_pagina = "Editar Espécie";
+    }
+}
+
+include_once 'cabecalho.php';
 
 ?>
 

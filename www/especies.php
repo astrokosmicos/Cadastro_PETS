@@ -32,6 +32,34 @@ include_once 'cabecalho.php';
                     </tr>
 
                 </tbody>
+
+                <?php
+
+
+                $sql = "SELECT * FROM especies ORDER BY nome ASC";
+                $resultado = mysqli_query($conn, $sql);
+
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                    while ($row = mysqli_fetch_array($resultado)) {
+                        echo "<tr>";
+                        echo "<td>{$row['id']}</td>";
+                        echo "<td>{$row['nome']}</td>";
+
+                        echo "<td class=\"coluna-acoes\">
+
+                                <a href=\"cadastro_especies.php?id={$row['id']}\" class=\"bot-acao bot-editar\">Editar</a>
+                                <a href=\"excluir_especie.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir a espécie?');\">Excluir</a>
+                              </td>";
+                        echo "</tr>";
+                        
+                    }
+                } else {
+                    echo "<tr><td colspan='3'>Nenhuma espécie cadastrada.</td></tr>";
+
+                }
+
+                ?>
+
             </table>
         </div>
     </main>
