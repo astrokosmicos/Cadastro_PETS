@@ -23,18 +23,7 @@ include_once 'cabecalho.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Gato</td>
-                        <td class="coluna-acoes">
-                            <a href="#" class="bot-acao bot-excluir" onclick="return confirm('Deseja mesmo excluir a espécie?');"> Excluir</a>
-                        </td>
-                    </tr>
-
-                </tbody>
-
                 <?php
-
 
                 $sql = "SELECT * FROM especies ORDER BY nome ASC";
                 $resultado = mysqli_query($conn, $sql);
@@ -59,6 +48,7 @@ include_once 'cabecalho.php';
                 }
 
                 ?>
+                </tbody>
 
             </table>
         </div>
