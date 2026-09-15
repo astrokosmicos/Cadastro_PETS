@@ -1,14 +1,29 @@
 <?php
-
 session_start();
 
-// desconectar
 if (isset($_GET['acao']) && $_GET['acao'] == 'sair') {
+
+    $_SESSION = array();
     session_unset();
     session_destroy();
-    header("location: login.php");
+    
+    if (ini_get("session.use_cookies")) {
+
+        $params = session_get_cookie_params();
+
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+
+}
+
+if (isset($_SESSION["usuario"])) {
+    header("location: index.php");
     exit();
 }
+
 
 ?>
 

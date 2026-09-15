@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="index.php">Pets</a></li>
                     <li><a href="especies.php">Espécies</a></li>
-                    <li><a href="login.php" class="bot-sair">Desconectar</a></li>
+                    <li><a href="login.php?acao=sair">Desconectar</a></li>
                 </ul>
             </nav>
         </div>

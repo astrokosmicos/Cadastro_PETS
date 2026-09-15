@@ -11,8 +11,8 @@ session_start();
 
 require_once("conecta.php");
 
-if (!isset($_POST["enviar"])) {
-    header("location: index.php");
+if (!isset($_SESSION["usuario"])) {
+    header("location: login.php");
     exit();
 }
 
