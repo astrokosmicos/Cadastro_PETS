@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Tempo de geração: 14/09/2026 às 22:03
+-- Tempo de geração: 15/09/2026 às 01:16
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.3.33
 
@@ -32,6 +32,16 @@ CREATE TABLE `especies` (
   `especie` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Despejando dados para a tabela `especies`
+--
+
+INSERT INTO `especies` (`id`, `especie`) VALUES
+(3, 'Gato'),
+(4, 'Cachorro'),
+(5, 'Rato'),
+(6, 'Arara');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +57,15 @@ CREATE TABLE `pets` (
   `prontuario` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Despejando dados para a tabela `pets`
+--
+
+INSERT INTO `pets` (`id`, `nome`, `nascimento`, `especie_id`, `genero`, `prontuario`) VALUES
+(3, 'Tom', '2021-02-20', 3, 'macho', 'Castrado, pelo comprido, vacinado.'),
+(4, 'Mot', '2025-02-01', 3, 'macho', 'Irmão do Tom.'),
+(6, 'Rio', '2018-05-03', 6, 'macho', 'Algumas penas faltando.');
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +78,13 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
+(1, 'Administrador', 'arnholdthaila92@gmail.com', '54321');
 
 --
 -- Índices para tabelas despejadas
@@ -92,19 +118,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `especies`
 --
 ALTER TABLE `especies`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
