@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+// desconectar
+if (isset($_GET['acao']) && $_GET['acao'] == 'sair') {
+    session_unset();
+    session_destroy();
+    header("location: login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,9 +35,9 @@
                 <p>Acesse a gestão de animais</p>
             </div>
 
-            <form action="#" method="POST" class="form-login">
+            <form action="processa_login.php" method="POST" class="form-login">
                 <div class="campo-grupo">
-                    <label for="login">E-mail ou Nome de Usuário</label>
+                    <label for="login">E-mail do Usuário</label>
                     <input type="text" id="login" name="login" required placeholder="Digite seu e-mail ou nome de usuário">
                 </div>
 
