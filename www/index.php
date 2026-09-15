@@ -60,7 +60,7 @@ include_once 'cabecalho.php';
                                 echo "<td>{$row['prontuario']}</td>";
                                 echo "<td class=\"coluna-acoes\">
                                         <a href=\"cadastro_pets.php?id={$row['id']}\" class=\"bot-acao bot-editar\">Editar</a>
-                                        <a href=\"excluir_pet.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir o PET?');\">Excluir</a>
+                                        <a href=\"excluir_pets.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir o PET?');\">Excluir</a>
                                     </td>";
                                 echo "</tr>";
                                 

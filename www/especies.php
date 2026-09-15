@@ -37,12 +37,12 @@ include_once 'cabecalho.php';
                     while ($row = mysqli_fetch_array($resultado)) {
                         echo "<tr>";
                         echo "<td>{$row['id']}</td>";
-                        echo "<td>{$row['nome']}</td>";
+                        echo "<td>{$row['especie']}</td>";
 
                         echo "<td class=\"coluna-acoes\">
 
                                 <a href=\"cadastro_especies.php?id={$row['id']}\" class=\"bot-acao bot-editar\">Editar</a>
-                                <a href=\"excluir_especie.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir a espécie?');\">Excluir</a>
+                                <a href=\"excluir_especies.php?id={$row['id']}\" class=\"bot-acao bot-excluir\" onclick=\"return confirm('Deseja mesmo excluir a espécie?');\">Excluir</a>
                               </td>";
                         echo "</tr>";
                         

@@ -64,7 +64,7 @@ if (count($erros) > 0) {
 
 
     } else {
-        $_SESSION["msg"] = "Erro ao salvar no banco de dados.";
+        $_SESSION["msg"] = "Erro ao salvar: " . mysqli_error($conn);
         $_SESSION["class"] = "alert-danger";
     }
 }

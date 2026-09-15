@@ -24,6 +24,7 @@
 
 
 
+
 /* --- gerais e resets--- */
 * {
     margin: 0;
@@ -31,6 +32,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 
 body {
     background-color: var(--cor-fundo);
@@ -220,6 +222,8 @@ body {
     margin-top: 20px;
 }
 
+
+
 /* --- todos os botoes --- */
 .bot-novo, .bot-salvar, .bot-cancelar, .bot-entrar, .bot-acao {
     border: none;
@@ -323,4 +327,17 @@ body {
     font-size: 0.85rem;
     color: #777777;
     margin-top: auto;
+}
+
+.card-login .alerta.alert-danger {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #e74c3c !important;
+    background-color: #fceae8 !important;
+    border: 1px solid #f5b7b1 !important;
+    font-weight: 600 !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
+    margin-bottom: 15px !important;
 }

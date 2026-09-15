@@ -35,6 +35,13 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'sair') {
                 <p>Acesse a gestão de animais</p>
             </div>
 
+            <?php if (isset($_SESSION["msg"])): ?>
+                <div class="alerta <?= $_SESSION["class"] ?>">
+                    <?= $_SESSION["msg"] ?>
+                </div>
+                <?php unset($_SESSION["msg"]); ?>
+            <?php endif; ?>
+
             <form action="processa_login.php" method="POST" class="form-login">
                 <div class="campo-grupo">
                     <label for="login">E-mail do Usuário</label>

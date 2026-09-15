@@ -19,7 +19,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
     if (mysqli_num_rows($resultado) == 1) {
         $esp = mysqli_fetch_array($resultado);
-        $nome_especie = $esp["nome"];
+        $nome_especie = $esp["especie"];
         $titulo_pagina = "Editar Espécie";
     }
 }
@@ -30,12 +30,13 @@ include_once 'cabecalho.php';
 
     <main class="conteudo-principal">
         <div class="box-formulario">
-            <h2> Cadastrar Nova Espécie</h2>
+            <h2><?= $titulo_pagina ?></h2>
 
-            <form action="especies.html" method="POST" class="form-cadastro">
+            <form action="processa_especies.php" method="POST" class="form-cadastro">
+                <input type="hidden" name="id" value="<?= $id_especie ?>">
                 <div class="campo-grupo">
                     <label for="especie">Nome da Espécie</label>
-                    <input type="text" id="especie" name="especie" required placeholder="Ex: Cachorro, Gato, Roedor...">
+                    <input type="text" id="especie" name="especie" required placeholder="Ex: Cachorro, Gato, Roedor..." value="<?= $nome_especie ?>">
                 </div>
 
                 <div class="acoes-formulario">
