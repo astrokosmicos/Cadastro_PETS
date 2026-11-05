@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Tempo de geração: 15/09/2026 às 01:16
+-- Tempo de geração: 05/11/2026 às 22:28
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.3.33
 
@@ -54,17 +54,18 @@ CREATE TABLE `pets` (
   `nascimento` date NOT NULL,
   `especie_id` int NOT NULL,
   `genero` enum('macho','femea') NOT NULL,
-  `prontuario` text
+  `prontuario` text,
+  `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `pets`
 --
 
-INSERT INTO `pets` (`id`, `nome`, `nascimento`, `especie_id`, `genero`, `prontuario`) VALUES
-(3, 'Tom', '2021-02-20', 3, 'macho', 'Castrado, pelo comprido, vacinado.'),
-(4, 'Mot', '2025-02-01', 3, 'macho', 'Irmão do Tom.'),
-(6, 'Rio', '2018-05-03', 6, 'macho', 'Algumas penas faltando.');
+INSERT INTO `pets` (`id`, `nome`, `nascimento`, `especie_id`, `genero`, `prontuario`, `foto`) VALUES
+(3, 'Tom', '2021-02-20', 3, 'macho', 'Castrado, pelo comprido, vacinado.', NULL),
+(4, 'Mot', '2025-02-01', 3, 'macho', 'Irmão do Tom.', NULL),
+(6, 'Rio', '2018-05-03', 6, 'macho', 'Algumas penas faltando.', NULL);
 
 -- --------------------------------------------------------
 
