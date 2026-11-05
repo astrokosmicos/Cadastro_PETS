@@ -26,6 +26,7 @@ include_once 'cabecalho.php';
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Foto</th>
                         <th>Nome</th>
                         <th>Nascimento</th>
                         <th>Espécie</th>
@@ -52,6 +53,15 @@ include_once 'cabecalho.php';
                                 $data_br = date('d/m/Y', strtotime($row['nascimento']));
                                 echo "<tr>";
                                 echo "<td>{$row['id']}</td>";
+
+                                echo "<td>";
+                                    if (!empty($row['foto'])) {
+                                        echo "<img src=\"{$row['foto']}\" alt=\"Foto do Pet\" width=\"50\" height=\"50\" style=\"object-fit: cover; border-radius: 50%;\">";
+                                    } else {
+                                        echo "<span class=\"text-muted\">Sem foto</span>";
+                                    }
+                                    
+                                echo "</td>";
                                 echo "<td>{$row['nome']}</td>";
                                 echo "<td>{$data_br}</td>";
 
@@ -67,7 +77,7 @@ include_once 'cabecalho.php';
                             }
 
                         } else {
-                            echo "<tr><td colspan='7'>Nenhum pet cadastrado.</td></tr>";
+                            echo "<tr><td colspan='8'>Nenhum pet cadastrado.</td></tr>";
                         }
                     ?>
                 </tbody>
