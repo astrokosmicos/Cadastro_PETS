@@ -14,6 +14,15 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
     $id = $_GET["id"];
 
+    $sqlFoto = "SELECT foto FROM pets WHERE id = $id";
+    $resultadoFoto = mysqli_query($conn, $sqlFoto);
+    if ($resultadoFoto && $row = mysqli_fetch_assoc($resultadoFoto)) {
+        // Se houver uma foto cadastrada e o arquivo existir no servidor, apaga-o
+        if (!empty($row['foto']) && file_exists($row['foto'])) {
+            unlink($row['foto']);
+        }
+    }
+
     $sql = "DELETE FROM pets WHERE id = $id";
 
     if (mysqli_query($conn, $sql)) {
