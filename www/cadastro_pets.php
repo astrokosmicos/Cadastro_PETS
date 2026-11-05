@@ -39,7 +39,7 @@ include_once 'cabecalho.php';
         <div class="box-formulario">
             <h2>Novo Pet</h2>
 
-            <form action="processa_pets.php" method="POST" class="form-cadastro">
+            <form action="processa_pets.php" method="POST" class="form-cadastro" enctype="multipart/form-data">
 
                 <input type="hidden" name="id_pet" value="<?= $id_pet ?>">
 
@@ -84,6 +84,11 @@ include_once 'cabecalho.php';
                 <div class="campo-grupo">
                     <label for="prontuario">Prontuário</label>
                     <textarea id="prontuario" name="prontuario" rows="4" placeholder="Alergias, castração, diagnósticos ou características relevantes..."><?= $prontuario ?></textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="foto" class="form-label">Fotografia do Pet</label>
+                    <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg, image/webp">
                 </div>
 
                 <div class="acoes-formulario">
